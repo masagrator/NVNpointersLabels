@@ -1,5 +1,11 @@
 #!/usr/bin/python
 
+"""
+Script converting nvnLoadCProcs C pseudocode from Ghidra to labels file
+python NVNconverter.py yourfilename
+It's overwriting original file
+"""
+
 import sys
 import re
 
