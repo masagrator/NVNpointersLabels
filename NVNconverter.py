@@ -1,11 +1,5 @@
 #!/usr/bin/python
 
-"""
-Script converting nvnLoadCProcs C pseudocode from Ghidra to labels file
-python NVNconverter.py yourfilename
-It's overwriting original file
-"""
-
 import sys
 import re
 
@@ -16,6 +10,7 @@ content_new2 = re.sub(r'^void(.*)$', r'', content_new, flags = re.M)
 content_new3 = re.sub(r'^(.*)local_(.*)$', r'', content_new2, flags = re.M)
 content_new4 = re.sub(r'  return(.*)', r'', content_new3, flags = re.M)
 content_new5 = re.sub(r'  QWORD_', r'0x', content_new4, flags = re.M)
+content_new5 = re.sub(r'  DWORD_', r'0x', content_new4, flags = re.M)
 content_new6 = re.sub('= (.*),"', '', content_new5, flags = re.M)
 content_new7 = re.sub(r'"(.*);', r'', content_new6, flags = re.M)
 content_new8 = re.sub(r'([A-Za-z0-9]\w+)\ ([A-Za-z0-9]\w+)', r'\2 \1', content_new7, flags = re.M)
